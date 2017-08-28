@@ -1,5 +1,5 @@
 import { combineReducers } from "redux";
-import trending from "./trending.js";
+import top from "./top.js";
 import random from "./random.js";
 
-export default combineReducers({ trending, random });
+export default combineReducers({ top, random });

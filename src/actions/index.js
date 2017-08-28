@@ -1,13 +1,16 @@
-import { giphyApi } from "../api/index";
+import { tmdbApi } from "../api/index";
 
-export function getTrending() {
+export function getTopMovies() {
     return function(dispatch) {
-        return fetch(giphyApi.baseUrl + giphyApi.trending + giphyApi.key)
+        return fetch(
+            tmdbApi.baseUrl + tmdbApi.movie + tmdbApi.key + tmdbApi.type.top
+        )
             .then(response => response.json())
             .then(json => {
+                console.log(json.results);
                 dispatch({
-                    type: "GET_TRENDING",
-                    payload: json.data
+                    type: "GET_TOP_MOVIES",
+                    payload: json.results
                 });
             });
     };

@@ -1,0 +1,28 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #18171C;
+}
+
+.page {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    flex: 2 0px;
+    padding-top: 40px;
+}
+
+.menu {
+    width: 15%;
+    max-width: 250px;
+    overflow: hidden;
+    margin-right: 25px;
+}
+
+.content {
+    width: 85%;
+}

@@ -1,4 +1,3 @@
-import "./card-item.css";
 import React from "react";
 import {
     Card,
@@ -10,10 +9,24 @@ import {
 } from "material-ui/Card";
 import FlatButton from "material-ui/FlatButton";
 
+const styles = {
+    card: {
+        position: "relative",
+        width: "250px",
+        background: "#1f1e24",
+        marginBottom: '45px'
+    },
+    cardText: {
+        maxHeight: "55px",
+        overflow: "hidden",
+        lineHeight: "1.8"
+    }
+};
+
 export default class CardItem extends React.Component {
     render() {
         return (
-            <Card style={{ width: "220px", margin: "10px" }}>
+            <Card style={styles.card}>
                 <CardMedia>
                     <img src={this.props.src} alt={this.props.title} />
                 </CardMedia>
@@ -21,18 +34,10 @@ export default class CardItem extends React.Component {
                     title={this.props.title}
                     subtitle={this.props.releaseDate}
                 />
-                <CardText
-                    style={{
-                        maxHeight: "55px",
-                        overflow: "hidden",
-                        lineHeight: "1.8"
-                    }}
-                >
-                    {this.props.desc}
-                </CardText>
+                <CardText style={styles.cardText}>{this.props.desc}</CardText>
                 <CardActions>
-                    <FlatButton label="Action1" />
-                    <FlatButton label="Action2" />
+                    <FlatButton  label="Read more" />
+                    <FlatButton label="Info" />
                 </CardActions>
             </Card>
         );

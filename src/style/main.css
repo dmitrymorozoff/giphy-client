@@ -4,25 +4,12 @@
 }
 
 body {
-    background: #18171C;
+
 }
 
-.page {
-    width: 90%;
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
-    flex: 2 0px;
-    padding-top: 40px;
-}
 
-.menu {
-    width: 15%;
-    max-width: 250px;
+.ui .card .description {
+    height: 75px;
     overflow: hidden;
-    margin-right: 25px;
-}
-
-.content {
-    width: 85%;
+    color: #747476;
 }

@@ -1,19 +1,26 @@
 import React from "react";
 import CardItem from "../../components/CardItem/index";
 import { tmdbApi } from "../../api/index";
-import { Grid, Image } from "semantic-ui-react";
+import { Grid, Cell } from "react-mdl";
 const styles = {
     grid: {
-        matginTop: '0'
+        justifyContent: "center",
+        width: '80%',
+        margin: '0 auto'
+    },
+    cell:{
+
+        display: 'flex',
+        justifyContent: 'center'
     }
 };
 
 const Movies = props => {
     return (
-        <Grid doubling columns={4} style={styles.grid}>
+        <Grid className="grid-ruler" style={styles.grid}>
             {props.data.data.map((item, index) => {
                 return (
-                    <Grid.Column>
+                    <Cell col={2} tablet={4} phone={12} style={styles.cell}>
                         <CardItem
                             title={item.title}
                             src={`${tmdbApi.baseImageUrl + item.poster_path}`}
@@ -23,7 +30,7 @@ const Movies = props => {
                             rating={item.vote_average}
                             id={item.id}
                         />
-                    </Grid.Column>
+                    </Cell>
                 );
             })}
         </Grid>

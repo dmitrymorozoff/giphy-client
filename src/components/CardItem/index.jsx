@@ -1,8 +1,25 @@
 import React from "react";
-import { Button, Card, Icon, Image } from "semantic-ui-react";
-import FlatButton from "material-ui/FlatButton";
+import { Card, CardTitle, CardText, CardActions, Button } from "react-mdl";
 import { connect } from "react-redux";
 import { getInfoAboutMovie } from "../../actions/index";
+
+const styles = {
+    card: {
+        background: "#21263C"
+    },
+    desc: {
+        height: "60px",
+        overflow: "hidden",
+        color: "#7F8094",
+        lineHeight: "25px",
+        fontWeight: "600",
+        fontSize: '13px'
+    },
+    btn: {
+        color: "#fff",
+        fontWeight: "600"
+    }
+};
 
 //onClick={this.handleReadMoreClick.bind(this)}
 class CardItem extends React.Component {
@@ -12,17 +29,20 @@ class CardItem extends React.Component {
     }
     render() {
         return (
-            <Card>
-                <Image src={this.props.src} />
-                <Card.Content>
-                    <Card.Header>{this.props.title}</Card.Header>
-                    <Card.Description>{this.props.desc}</Card.Description>
-                </Card.Content>
-                <Card.Content extra>
-                    <div className="ui two buttons">
-                        <Button color="yellow">Read more</Button>
-                    </div>
-                </Card.Content>
+            <Card shadow={0} style={styles.card}>
+                <CardTitle
+                    style={{
+                        color: "#fff",
+                        height: "256px",
+                        background: `url(${this.props.src}) center / cover`
+                    }}
+                >
+                    {this.props.title}
+                </CardTitle>
+                <CardText style={styles.desc}>{this.props.desc}</CardText>
+                <CardActions border>
+                    <Button style={styles.btn}>Get Started</Button>
+                </CardActions>
             </Card>
         );
     }

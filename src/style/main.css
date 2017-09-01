@@ -3,13 +3,8 @@
     padding: 0;
 }
 
+html,
 body {
-
-}
-
-
-.ui .card .description {
-    height: 75px;
-    overflow: hidden;
-    color: #747476;
+    font-family: "Open Sans", sans-serif !important;
+    background: #1a1e2f;
 }

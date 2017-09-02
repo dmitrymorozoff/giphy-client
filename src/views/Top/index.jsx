@@ -1,10 +1,11 @@
 import React from "react";
 import { connect } from "react-redux";
-import { getTopMovies } from "../../actions/index.js";
 import Progress from "../../components/Progress/index";
 import Movies from "../../components/Movies/index";
 import SelectField from "material-ui/SelectField/";
 import MenuItem from "material-ui/MenuItem/";
+import { getTopMovies } from "../../actions";
+import { bindActionCreators } from "redux";
 const styles = {};
 
 const items = [
@@ -32,11 +33,7 @@ class Top extends React.Component {
     }
     handleChange = (event, index, value) => this.setState({ value });
     render() {
-        return (
-            <div>
-                    {this.renderCards()}
-            </div>
-        );
+        return <div>{this.renderCards()}</div>;
     }
 }
 
@@ -46,12 +43,7 @@ function mapStateToProps(state) {
     };
 }
 
-function mapDispatchToProps(dispatch) {
-    return {
-        getTopMovies: () => {
-            dispatch(getTopMovies());
-        }
-    };
-}
+const mapDispatchToProps = dispatch =>
+    bindActionCreators({ getTopMovies }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(Top);

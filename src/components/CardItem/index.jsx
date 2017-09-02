@@ -5,19 +5,19 @@ import { getInfoAboutMovie } from "../../actions/index";
 
 const styles = {
     card: {
-        background: "#21263C"
+        background: "#273247",
+        minWidth: "220px"
     },
     desc: {
         height: "60px",
         overflow: "hidden",
-        color: "#7F8094",
+        color: "#54617A",
         lineHeight: "25px",
-        fontWeight: "600",
-        fontSize: '13px'
+        fontSize: "14px",
+        marginBottom: "10px"
     },
     btn: {
-        color: "#fff",
-        fontWeight: "600"
+        color: "#fff"
     }
 };
 

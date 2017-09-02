@@ -18,7 +18,7 @@ export default class Main extends React.Component {
         return (
             <BrowserRouter>
                 <Layout>
-                    <Header waterfall hideTop style={{ background: "#23283f" }}>
+                    <Header waterfall hideTop style={{ background: "#1F8EFA" }}>
                         <HeaderRow title="The Movie Database">
                             <Textfield
                                 value=""
@@ -40,7 +40,7 @@ export default class Main extends React.Component {
                     <Drawer
                         title="TMDb"
                         style={{
-                            background: "#23283f",
+                            background: "#273247",
                             border: "none",
                             color: "#fff"
                         }}

@@ -4,7 +4,7 @@ const initialState = {
 
 export default function trendingReducer(state = initialState, action) {
     switch (action.type) {
-        case "GET_TOP_MOVIES":
+        case "TOP_MOVIES_FETCH_SUCCEEDED":
             return { ...state, data: action.payload };
             break;
         default:

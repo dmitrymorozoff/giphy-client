@@ -1,10 +1,12 @@
+import { MOVIE } from "../actions/movie";
+
 const initialState = {
     data: null
 };
 
-export default function popularReducer(state = initialState, action) {
+export default function movieReducer(state = initialState, action) {
     switch (action.type) {
-        case "GET_INFO_ABOUT_MOVIE":
+        case MOVIE.MOVIE_FETCH_SUCCEEDED:
             return { ...state, data: action.payload };
             break;
         default:

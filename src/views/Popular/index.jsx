@@ -1,16 +1,18 @@
 import React from "react";
 import { connect } from "react-redux";
-import { getPopularMovies } from "../../actions/index";
+import { fetchPopularMovies } from "./actions.js";
 import Progress from "../../components/Progress/index";
 import Movies from "../../components/Movies/index";
+import { bindActionCreators } from "redux";
 
 const styles = {};
 
 class Popular extends React.Component {
     componentWillMount() {
-        this.props.getPopularMovies();
+        this.props.fetchPopularMovies();
     }
     renderCards() {
+        console.log("pop" + this.props.popular);
         if (this.props.popular.data === null) {
             return <Progress />;
         } else {
@@ -18,26 +20,17 @@ class Popular extends React.Component {
         }
     }
     render() {
-        return (
-            <div>
-                {this.renderCards()}
-            </div>
-        );
+        return <div>{this.renderCards()}</div>;
     }
 }
 
-function mapStateToProps(state) {
+const mapStateToProps = state => {
     return {
-        popular: state.popular
+        popular: state.popularReducer
     };
-}
+};
 
-function mapDispatchToProps(dispatch) {
-    return {
-        getPopularMovies: () => {
-            dispatch(getPopularMovies());
-        }
-    };
-}
+const mapDispatchToProps = dispatch =>
+    bindActionCreators({ fetchPopularMovies }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(Popular);

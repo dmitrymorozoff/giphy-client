@@ -1,6 +1,6 @@
 import { combineReducers } from "redux";
-import top from "./top";
-import popular from "./popular";
-import info from "./info";
+import topReducer from "./top";
+import popularReducer from "./popular";
+import movieReducer from "./movie";
 
-export default combineReducers({ top, popular, info });
+export default combineReducers({ topReducer, popularReducer, movieReducer });

@@ -4,9 +4,8 @@ import Progress from "../../components/Progress/index";
 import Movies from "../../components/Movies/index";
 import SelectField from "material-ui/SelectField/";
 import MenuItem from "material-ui/MenuItem/";
-import { getTopMovies } from "../../actions";
+import { fetchTopMovies } from "./actions.js";
 import { bindActionCreators } from "redux";
-const styles = {};
 
 const items = [
     <MenuItem key={1} value={1} primaryText="Never" />,
@@ -22,7 +21,7 @@ class Top extends React.Component {
         this.state = { value: null };
     }
     componentWillMount() {
-        this.props.getTopMovies();
+        this.props.fetchTopMovies();
     }
     renderCards() {
         if (this.props.top.data === null) {
@@ -39,11 +38,11 @@ class Top extends React.Component {
 
 function mapStateToProps(state) {
     return {
-        top: state.top
+        top: state.topReducer
     };
 }
 
 const mapDispatchToProps = dispatch =>
-    bindActionCreators({ getTopMovies }, dispatch);
+    bindActionCreators({ fetchTopMovies }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(Top);

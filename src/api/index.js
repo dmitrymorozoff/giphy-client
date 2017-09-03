@@ -20,16 +20,3 @@ export function fetchActors() {
             console.log(error);
         });
 }
-
-export const fetchTopMovies = () => {
-    return fetch(
-        tmdbApi.baseUrl + tmdbApi.movie + tmdbApi.key + tmdbApi.type.top
-    )
-        .then(response => response.json())
-        .then(data => {
-            return data;
-        })
-        .catch(error => {
-            console.log(error);
-        });
-};

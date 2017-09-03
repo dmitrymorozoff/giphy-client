@@ -1,15 +1,19 @@
-import { call, put } from "redux-saga/effects";
-import { TOP_MOVIES } from "./actions";
+import { put, call } from "redux-saga/effects";
+import { POPULAR_MOVIES } from "./actions";
 import { tmdbApi } from "../../api";
 
-export function* fetchTopMovies(action) {
+export function* fetchPopularMovies() {
     try {
         const data = yield call(() => {
             return fetch(
-                tmdbApi.baseUrl + tmdbApi.movie + tmdbApi.key + tmdbApi.type.top
+                tmdbApi.baseUrl +
+                    tmdbApi.movie +
+                    tmdbApi.key +
+                    tmdbApi.type.popular
             )
                 .then(response => response.json())
                 .then(data => {
+                    console.log(data);
                     return data;
                 })
                 .catch(error => {
@@ -17,12 +21,12 @@ export function* fetchTopMovies(action) {
                 });
         });
         yield put({
-            type: TOP_MOVIES.TOP_MOVIES_FETCH_SUCCEEDED,
+            type: POPULAR_MOVIES.POPULAR_MOVIES_FETCH_SUCCEEDED,
             payload: data.results
         });
     } catch (e) {
         yield put({
-            type: TOP_MOVIES.TOP_MOVIES_FETCH_FAILED,
+            type: POPULAR_MOVIES.POPULAR_MOVIES_FETCH_FAILED,
             message: e.message
         });
     }

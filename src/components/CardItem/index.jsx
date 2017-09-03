@@ -1,7 +1,8 @@
 import React from "react";
 import { Card, CardTitle, CardText, CardActions, Button } from "react-mdl";
 import { connect } from "react-redux";
-import { getInfoAboutMovie } from "../../actions/index";
+import { fetchMovie } from "../../actions/movie.js";
+import { bindActionCreators } from "redux";
 
 const styles = {
     card: {
@@ -24,10 +25,10 @@ const styles = {
 //onClick={this.handleReadMoreClick.bind(this)}
 class CardItem extends React.Component {
     handleReadMoreClick() {
-        console.log(this.props.info);
-        this.props.getInfoAboutMovie(this.props.id);
+        this.props.fetchMovie(this.props.id);
     }
     render() {
+        console.log(this.props.id);
         return (
             <Card shadow={0} style={styles.card}>
                 <CardTitle
@@ -41,25 +42,25 @@ class CardItem extends React.Component {
                 </CardTitle>
                 <CardText style={styles.desc}>{this.props.desc}</CardText>
                 <CardActions border>
-                    <Button style={styles.btn}>Get Started</Button>
+                    <Button
+                        style={styles.btn}
+                        onClick={() => this.handleReadMoreClick()}
+                    >
+                        Read more
+                    </Button>
                 </CardActions>
             </Card>
         );
     }
 }
 
-function mapStateToProps(state) {
+const mapStateToProps = state => {
     return {
-        info: state.info
+        movie: state.movieReducer
     };
-}
+};
 
-function mapDispatchToProps(dispatch) {
-    return {
-        getInfoAboutMovie: id => {
-            dispatch(getInfoAboutMovie(id));
-        }
-    };
-}
+const mapDispatchToProps = dispatch =>
+    bindActionCreators({ fetchMovie }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(CardItem);

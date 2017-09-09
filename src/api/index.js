@@ -1,6 +1,7 @@
 export const tmdbApi = {
     baseUrl: "https://api.themoviedb.org/3/",
     movie: "discover/movie",
+    genres: "genre/movie/list",
     item: "movie",
     type: {
         top: "&primary_release_year=2016&page=2",

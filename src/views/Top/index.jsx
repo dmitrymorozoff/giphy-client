@@ -36,11 +36,11 @@ class Top extends React.Component {
     }
 }
 
-function mapStateToProps(state) {
+const mapStateToProps = state => {
     return {
         top: state.topReducer
     };
-}
+};
 
 const mapDispatchToProps = dispatch =>
     bindActionCreators({ fetchTopMovies }, dispatch);

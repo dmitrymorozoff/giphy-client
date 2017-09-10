@@ -2,8 +2,9 @@ import React from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { fetchAllGenres } from "./actions.js";
-import { Chip, Grid, ChipContact } from "react-mdl";
+import { Chip, Grid, Cell, ChipContact } from "react-mdl";
 import { getRandomInt } from "../../utils";
+import Slider from "react-slick";
 
 const chipColors = [
     "#E3F2FD",
@@ -77,7 +78,7 @@ class Home extends React.Component {
     render() {
         return (
             <Grid className="grid-ruler" style={styles.grid}>
-                {this.renderGenresList()}
+                <Cell col={12}>{this.renderGenresList()}</Cell>
             </Grid>
         );
     }

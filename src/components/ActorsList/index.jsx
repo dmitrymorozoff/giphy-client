@@ -1,5 +1,5 @@
 import React from "react";
-import CardItem from "../../components/CardItem/index";
+import ActorCardItem from "../../components/ActorCardItem/index";
 import { tmdbApi } from "../../api/index";
 import { Grid, Cell } from "react-mdl";
 const styles = {
@@ -14,7 +14,7 @@ const styles = {
     }
 };
 
-const Movies = props => {
+const ActorsList = props => {
     return (
         <Grid className="grid-ruler" style={styles.grid}>
             {props.data.data.map((item, index) => {
@@ -26,14 +26,10 @@ const Movies = props => {
                         style={styles.cell}
                         key={index}
                     >
-                        <CardItem
-                            title={item.title}
-                            src={`${tmdbApi.baseImageUrl + item.poster_path}`}
-                            desc={item.overview}
+                        <ActorCardItem
+                            src={`${tmdbApi.baseImageUrl + item.profile_path}`}
+                            name={item.name}
                             key={index}
-                            releaseDate={item.release_date}
-                            rating={item.vote_average}
-                            id={item.id}
                         />
                     </Cell>
                 );
@@ -42,4 +38,4 @@ const Movies = props => {
     );
 };
 
-export default Movies;
+export default ActorsList;

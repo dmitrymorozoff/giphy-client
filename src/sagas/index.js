@@ -3,15 +3,16 @@ import { fetchTopMovies } from "../views/Top/sagas";
 import { fetchPopularMovies } from "../views/Popular/sagas";
 import { fetchGenresList } from "../views/Home/sagas";
 import { HOME_MOVIES } from "../views/Home/actions";
-import { getActors } from "../views/Actors/sagas";
+import { fetchActorsList } from "../views/Actors/sagas";
 import { TOP_MOVIES } from "../views/Top/actions";
+import { ACTORS } from "../views/Actors/actions";
 import { POPULAR_MOVIES } from "../views/Popular/actions";
 import { fetchMovie } from "./movie";
 import { MOVIE } from "../actions/movie";
 
 function* rootSaga() {
     yield [
-        takeLatest("ACTORS_FETCH_REQUEST", getActors),
+        takeLatest(ACTORS.ACTORS_FETCH_REQUEST, fetchActorsList),
         takeLatest(TOP_MOVIES.TOP_MOVIES_FETCH_REQUEST, fetchTopMovies),
         takeLatest(HOME_MOVIES.ALL_GENRES_FETCH_REQUEST, fetchGenresList),
         takeLatest(

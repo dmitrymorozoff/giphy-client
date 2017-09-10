@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import Progress from "../../components/Progress/index";
-import Movies from "../../components/Movies/index";
+import MoviesList from "../../components/MoviesList/index";
 import SelectField from "material-ui/SelectField/";
 import MenuItem from "material-ui/MenuItem/";
 import { fetchTopMovies } from "./actions.js";
@@ -27,7 +27,7 @@ class Top extends React.Component {
         if (this.props.top.data === null) {
             return <Progress />;
         } else {
-            return <Movies data={this.props.top} />;
+            return <MoviesList data={this.props.top} />;
         }
     }
     handleChange = (event, index, value) => this.setState({ value });

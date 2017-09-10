@@ -1,11 +1,24 @@
 import { call, put } from "redux-saga/effects";
-import { fetchActors } from "../../api";
+import { tmdbApi } from "../../api/";
+import { ACTORS } from "./actions";
 
-export function* getActors(action) {
+export function* fetchActorsList(action) {
     try {
-        const data = yield call(fetchActors);
-        yield put({ type: "ACTORS_FETCH_SUCCEEDED", data: data });
+        const data = yield call(() => {
+            return fetch(tmdbApi.baseUrl + tmdbApi.actors + tmdbApi.key)
+                .then(response => response.json())
+                .then(data => {
+                    return data;
+                })
+                .catch(error => {
+                    console.log(error);
+                });
+        });
+        yield put({
+            type: ACTORS.ACTORS_FETCH_SUCCEEDED,
+            payload: data.results
+        });
     } catch (e) {
-        yield put({ type: "ACTORS_FETCH_FAILED", message: e.message });
+        yield put({ type: ACTORS.ACTORS_FETCH_FAILED, message: e.message });
     }
 }

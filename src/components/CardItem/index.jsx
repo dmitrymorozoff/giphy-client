@@ -7,7 +7,8 @@ import { bindActionCreators } from "redux";
 const styles = {
     card: {
         background: "#273247",
-        minWidth: "220px"
+        minWidth: "220px",
+        boxShadow: "0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)"
     },
     desc: {
         height: "60px",

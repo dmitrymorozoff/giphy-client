@@ -4,6 +4,7 @@ import Top from "../views/Top/";
 import Popular from "../views/Popular/";
 import MovieInfo from "../views/MovieInfo/";
 import Home from "../views/Home/";
+import Actors from "../views/Actors/";
 
 export default (
     <Switch>
@@ -12,5 +13,6 @@ export default (
         <Route path="/top" component={Top} />
         <Route path="/popular" exact component={Popular} />
         <Route path="/popular/:id" component={MovieInfo} />
+        <Route path="/actors" component={Actors} />
     </Switch>
 );

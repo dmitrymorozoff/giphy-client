@@ -33,7 +33,7 @@ export default class Main extends React.Component {
                                 <Link to="/home">Home</Link>
                                 <Link to="/top">Top Movies</Link>
                                 <Link to="/popular">Popular Movies</Link>
-                                <a href="#">Actors</a>
+                                <Link to="/actors">Actors</Link>
                             </Navigation>
                         </HeaderRow>
                     </Header>
